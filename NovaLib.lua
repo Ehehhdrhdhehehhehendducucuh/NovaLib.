@@ -1,18 +1,19 @@
+-- it already draggable and mobile support do not skid it
 local NovaLib = {}
 
-function NovaLib:CreateGui()
+function NovaLib:CreateWindow(windowName)
     local gui = Instance.new("ScreenGui")
-    gui.Name = "Nova"
+    gui.Name = windowName or "NovaGui"
     gui.ResetOnSpawn = false
     gui.IgnoreGuiInset = true
     gui.Parent = game.CoreGui
     return gui
 end
 
-function NovaLib:CreateFrame(parent, size, color)
+function NovaLib:CreateFrame(parent)
     local frame = Instance.new("Frame")
-    frame.Size = size or UDim2.new(0, 300, 0, 200)
-    frame.BackgroundColor3 = color or Color3.fromRGB(30, 30, 30)
+    frame.Size = UDim2.new(0, 300, 0, 200)
+    frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     frame.AnchorPoint = Vector2.new(0.5, 0.5)
     frame.Parent = parent
 
