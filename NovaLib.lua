@@ -1,6 +1,4 @@
--- it already draggable and mobile support do not skid it
 local NovaLib = {}
-
 function NovaLib:CreateWindow(windowName)
     local gui = Instance.new("ScreenGui")
     gui.Name = windowName or "NovaGui"
@@ -59,7 +57,7 @@ end
 
 function NovaLib:CreateTabs(parent, tabs)
     local tabHolder = Instance.new("Frame")
-    tabHolder.Size = UDim2.new(1, 0, 0, 40)
+    tabHolder.Size = UDim2.new(1, 0, 0, 50)
     tabHolder.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     tabHolder.Parent = parent
 
@@ -71,8 +69,8 @@ function NovaLib:CreateTabs(parent, tabs)
 
     for i, tabName in ipairs(tabs) do
         local button = Instance.new("TextButton")
-        button.Size = UDim2.new(0, 80, 1, 0)
-        button.Position = UDim2.new((i - 1) * 0.2, 0, 0, 0)
+        button.Size = UDim2.new(0, 100, 1, 0)  -- Button size
+        button.Position = UDim2.new((i - 1) * 0.33, 0, 0, 0)
         button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
         button.Text = tabName
         button.Font = Enum.Font.GothamBold
@@ -83,13 +81,13 @@ function NovaLib:CreateTabs(parent, tabs)
         local cornerButton = Instance.new("UICorner")
         cornerButton.CornerRadius = UDim.new(0, 12)
         cornerButton.Parent = button
-
+        
         button.MouseButton1Click:Connect(function()
             for _, btn in pairs(buttons) do
-                btn:TweenSize(UDim2.new(0, 80, 1, 0), "Out", "Quad", 0.3, true)
+                btn:TweenSize(UDim2.new(0, 100, 1, 0), "Out", "Quad", 0.3, true)
                 btn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
             end
-            button:TweenSize(UDim2.new(0, 90, 1, 0), "Out", "Quad", 0.3, true)
+            button:TweenSize(UDim2.new(0, 110, 1, 0), "Out", "Quad", 0.3, true)
             button.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
         end)
 
@@ -98,3 +96,5 @@ function NovaLib:CreateTabs(parent, tabs)
 
     return tabHolder, buttons
 end
+
+return NovaLib
