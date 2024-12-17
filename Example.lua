@@ -1,18 +1,10 @@
--- example!
-local NovaLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ehehhdrhdhehehhehendducucuh/NovaLib./refs/heads/main/NovaLib.lua"))()
+-- example
+local Novalib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ehehhdrhdhehehhehendducucuh/NovaLib./refs/heads/main/NovaLib.lua%20(3).txt"))() -- library
 
-local ui = NovaLib:CreateWindow("My Window")
-local window = NovaLib:CreateFrame(ui)
-local tabHolder, tabs = NovaLib:CreateTabs(window, {"Tab1", "Tab2"})
-
-NovaLib:CreateButton(window, "Click Me", function()
-    print("Button was clicked!")
-end)
-
-NovaLib:CreateToggle(window, "Enable Feature", function(isToggled)
-    print("Toggle State: ", isToggled)
-end)
-
-NovaLib:CreateSlider(window, "Volume", 0, 100, function(value)
-    print("Slider Value: ", value)
-end)
+Novalib:CreateLoadingScreen({
+    Name = "NovaWelcome",
+    Text = "Welcome to NovaHub!",
+    BackgroundColor = Color3.fromRGB(44, 47, 232),
+    TextColor = Color3.fromRGB(255, 255, 255),
+    TypeSpeed = 0.05
+})
